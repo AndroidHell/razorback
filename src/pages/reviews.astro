@@ -1,0 +1,70 @@
+---
+import Container from "../components/Container.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHead from "../components/HeroInner.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import ReviewCard from "../components/ReviewCard.astro";
+
+const title = "Our Reviews";
+const desc = "";
+const image = "/hero-inner.webp";
+---
+
+<BaseLayout title="Reviews" description="Reviews">
+  <SectionHead title={title} desc={desc} image={image} />
+  <Container>
+    <div
+      class="mb-36 mt-20 grid grid-cols-1 justify-items-center gap-4 md:grid-cols-2 lg:grid-cols-3"
+    >
+      <ReviewCard
+        rating={5}
+        review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ullam neque provident unde. Eaque error dignissimos deleniti perferendis magni, quis eveniet magnam quisquam hic."
+        reviewerImage="/review-placeholder.png"
+        alt="reviewer image"
+        name="Melissa Smith"
+        title="Marketing Manager"
+      />
+      <ReviewCard
+        rating={5}
+        review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ullam neque provident unde. Eaque error dignissimos deleniti perferendis magni, quis eveniet magnam quisquam hic."
+        reviewerImage="/review-placeholder.png"
+        alt="reviewer image"
+        name="Melissa Smith"
+        title="Marketing Manager"
+      />
+      <ReviewCard
+        rating={5}
+        review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ullam neque provident unde. Eaque error dignissimos deleniti perferendis magni, quis eveniet magnam quisquam hic."
+        reviewerImage="/review-placeholder.png"
+        alt="reviewer image"
+        name="Melissa Smith"
+        title="Marketing Manager"
+      />
+      <ReviewCard
+        rating={5}
+        review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ullam neque provident unde. Eaque error dignissimos deleniti perferendis magni, quis eveniet magnam quisquam hic."
+        reviewerImage="/review-placeholder.png"
+        alt="reviewer image"
+        name="Melissa Smith"
+        title="Marketing Manager"
+      />
+      <ReviewCard
+        rating={5}
+        review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ullam neque provident unde. Eaque error dignissimos deleniti perferendis magni, quis eveniet magnam quisquam hic."
+        reviewerImage="/review-placeholder.png"
+        alt="reviewer image"
+        name="Melissa Smith"
+        title="Marketing Manager"
+      />
+      <ReviewCard
+        rating={5}
+        review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ullam neque provident unde. Eaque error dignissimos deleniti perferendis magni, quis eveniet magnam quisquam hic."
+        reviewerImage="/review-placeholder.png"
+        alt="reviewer image"
+        name="Melissa Smith"
+        title="Marketing Manager"
+      />
+    </div>
+  </Container>
+  <CtaBanner />
+</BaseLayout>

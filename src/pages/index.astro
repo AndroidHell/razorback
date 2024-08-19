@@ -1,0 +1,27 @@
+---
+import Container from "../components/Container.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import FeatureHead from "../components/FeatureHead.astro";
+import AboutBody from "../components/AboutBody.astro";
+import CtaNewLetter from "../components/CtaNewsLetter.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import FeatureOne from "../components/FeatureOne.astro";
+import FeatureTwo from "../components/FeatureTwo.astro";
+import FeaturedReviews from "../components/FeaturedReviews.astro";
+import MasonryGallery from "../components/MasonryGallery.astro";
+---
+
+<BaseLayout title="Razorback">
+  <Hero />
+  <Container>
+    <FeatureHead />
+    <AboutBody />
+    <FeatureOne />
+    <FeatureTwo />
+    <MasonryGallery />
+    <FeaturedReviews />
+  </Container>
+  <CtaNewLetter />
+  <CtaBanner />
+</BaseLayout>

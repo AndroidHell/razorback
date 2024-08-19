@@ -1,0 +1,37 @@
+---
+import FormattedDate from "../components/FormattedDate.astro";
+import { Image } from "astro:assets";
+
+const { title, img, url, pubDate, target = "_blank" } = Astro.props;
+---
+
+<div
+  class="mx-auto overflow-hidden border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800"
+>
+  <a href={url} target={target}>
+    <div class="flex items-center">
+      {
+        img && (
+          <Image
+            src={img}
+            width={200}
+            height={200}
+            format="webp"
+            alt={title}
+            class="h-20 w-20 rounded-xl"
+          />
+        )
+      }
+      <div class="p-5">
+        <h5
+          class="mb-1 text-lg font-semibold tracking-tight text-gray-900 dark:text-white"
+        >
+          {title}
+        </h5>
+        <span class="text-xs">
+          <FormattedDate date={new Date(pubDate)} />
+        </span>
+      </div>
+    </div>
+  </a>
+</div>

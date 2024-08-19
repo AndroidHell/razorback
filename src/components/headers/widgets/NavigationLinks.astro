@@ -1,0 +1,77 @@
+---
+import { navigationItems as navItems } from "../navigationItems";
+const currentPath = Astro.url.pathname;
+---
+
+<ul
+  class="mx-2 mt-4 flex flex-col rounded-lg border p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0"
+>
+  {
+    navItems.map((item, index) => {
+      const dropdownId = `dropdownNavbar-${index}`;
+      const dropdownToggleId = `dropdownNavbarLink-${index}`;
+      return (
+        <>
+          {item.children ? (
+            <li>
+              <button
+                id={dropdownToggleId}
+                data-dropdown-toggle={dropdownId}
+                class="flex w-full items-center justify-between rounded px-3 py-2 text-lg font-semibold text-gray-600 hover:text-primary-500 dark:text-gray-100 dark:hover:text-gray-300 dark:focus:text-gray-400 md:w-auto md:border-0 md:p-0"
+              >
+                <span>{item.title}</span>
+                <svg
+                  class="ms-2.5 h-2.5 w-2.5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+              <div
+                id={dropdownId}
+                class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white font-normal shadow dark:divide-gray-600 dark:bg-gray-700"
+              >
+                <ul class="py-2" aria-labelledby={dropdownToggleId}>
+                  {item.children.map((child) => (
+                    <li>
+                      <a
+                        href={child.path}
+                        class="block px-4 py-2 text-lg text-gray-700 hover:bg-gray-100 hover:text-primary-500 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        <span>{child.title}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          ) : (
+            <li>
+              <a
+                href={item.path}
+                target={item.target || "_self"}
+                rel={
+                  item.target === "_blank" ? "noopener noreferrer" : undefined
+                }
+                class="block rounded px-3 py-2 text-lg font-semibold text-gray-600 hover:text-primary-500 dark:text-gray-100 dark:hover:text-gray-300 md:p-0"
+              >
+                <span>{item.title}</span>
+              </a>
+            </li>
+          )}
+        </>
+      );
+    })
+  }
+</ul>
+
+

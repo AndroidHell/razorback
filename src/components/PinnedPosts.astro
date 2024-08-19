@@ -1,0 +1,55 @@
+---
+// Import necessary modules and types
+import { getCollection } from "astro:content";
+import PinnedCard from "../components/PinnedCard.astro"; // Adjust path as necessary
+import createSlug from "../lib/createSlug";
+
+interface BlogPost {
+  slug: string;
+  data: {
+    title: string;
+    heroImage: string;
+    pubDate: string;
+    pinned: boolean;
+  };
+}
+// Fetch all blog posts
+const posts = await getCollection("blog");
+
+// Filter posts to include only those with pinned set to true
+const pinnedPosts = posts.filter((post) => post.data.pinned);
+---
+
+<!-- added -->
+<section class="bg-white dark:bg-gray-800 lg:ml-4">
+  <div class="mx-6 pt-6 lg:pt-0">
+    {
+      pinnedPosts.length > 0 && (
+        <span class="border-b-2 border-primary-500 uppercase text-gray-500 dark:text-gray-200">
+          Featured Posts
+        </span>
+      )
+    }
+  </div>
+  <div class="mx-auto max-w-screen-xl px-4 py-4 lg:px-6">
+    <div
+      class="grid space-y-8 sm:gap-4 md:grid-cols-2 md:space-y-0 lg:grid-cols-1"
+    >
+      {
+        pinnedPosts.length > 0 ? (
+          <ul class="grid grid-cols-1 gap-4">
+            {pinnedPosts.map((post) => (
+              <PinnedCard
+                title={post.data.title}
+                img={post.data.heroImage}
+                pubDate={post.data.pubDate}
+                url={"/blog/" + createSlug(post.data.title, post.slug)}
+                target="_self"
+              />
+            ))}
+          </ul>
+        ) : null
+      }
+    </div>
+  </div>
+</section>

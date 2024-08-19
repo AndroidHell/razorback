@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+const { rating, review, reviewerImage, alt, name, title } = Astro.props;
+---
+
+<div
+  class="mx-auto flex w-full max-w-xl transform flex-col overflow-hidden rounded-xl bg-gray-50 p-8 shadow-xl transition-all duration-300 hover:shadow-2xl dark:bg-gray-700"
+>
+  <div class="flex gap-2 text-amber-500">
+    {
+      Array.from({ length: 5 }).map((_, index) => (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class={index < rating ? "text-amber-500" : "text-gray-300"}
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+        </svg>
+      ))
+    }
+  </div>
+  <p
+    class="my-4 mb-0 text-base font-normal leading-relaxed tracking-wide text-gray-700 dark:text-gray-200"
+  >
+    {review}
+  </p>
+
+  <div class="mt-6 flex items-center gap-6">
+    <div
+      class="h-10 w-10 overflow-hidden rounded-full shadow-sm outline-neutral-800"
+    >
+      <div
+        class="relative inline-block overflow-hidden rounded-lg border-neutral-800"
+      >
+        <img
+          src={reviewerImage}
+          alt={alt}
+          width="50"
+          height="50"
+          decoding="async"
+          data-nimg="1"
+          class="inline-block"
+          loading="lazy"
+          style="color: transparent;"
+        />
+      </div>
+    </div>
+    <div>
+      <p
+        class="font-semibold leading-relaxed tracking-wide text-gray-500 dark:text-gray-400"
+      >
+        {name}
+      </p>
+      <p class="text-xs leading-relaxed tracking-wide text-gray-500">
+        {title}
+      </p>
+    </div>
+  </div>
+</div>

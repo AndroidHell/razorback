@@ -1,0 +1,125 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogContainer from "../../components/BlogContainer.astro";
+import HeroInner from "../../components/HeroInner.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+import createSlug from "../../lib/createSlug";
+import PinnedPosts from "../../components/PinnedPosts.astro";
+
+interface BlogPost {
+  data: {
+    title: string;
+    heroImage: string;
+    description: string;
+    pubDate: Date;
+    updatedDate?: Date;
+    badge?: string;
+    tags?: string[];
+  };
+  slug: string;
+}
+
+interface PageProps {
+  data: BlogPost[];
+  url: {
+    prev?: string;
+    next?: string;
+  };
+}
+
+export async function getStaticPaths({ paginate }: { paginate: any }) {
+  const posts = await getCollection("blog");
+  posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return paginate(posts, { pageSize: 6 });
+}
+
+const { page }: { page: PageProps } = Astro.props;
+
+const title = "Our blog";
+const desc = "";
+const image = "/hero-inner.webp";
+---
+
+<BaseLayout title="Blog">
+  <HeroInner title={title} desc={desc} image={image} />
+
+  <BlogContainer>
+    <div class="mt-8 grid grid-cols-1 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        {
+          page.data.length === 0 ? (
+            <div class="w-full min-w-full border-l-4 border-gray-300 bg-gray-100 p-4">
+              <p class="font-bold">Sorry!</p>
+              <p>There is no news to show at the moment. Check back later!</p>
+            </div>
+          ) : (
+            <ul class="grid grid-cols-1 gap-4 ">
+              {page.data.map((post) => (
+                <>
+                  <BlogCard
+                    title={post.data.title}
+                    img={post.data.heroImage}
+                    desc={post.data.description}
+                    url={"/blog/" + createSlug(post.data.title, post.slug)}
+                    target="_self"
+                    badge={post.data.badge}
+                    tags={post.data.tags}
+                  />
+                </>
+              ))}
+            </ul>
+          )
+        }
+
+        <div class="flex justify-between">
+          {
+            page.url.prev ? (
+              <a
+                href={page.url.prev}
+                class="mx-5 my-10 flex items-center space-x-2 text-gray-500 hover:text-gray-900 dark:text-gray-300 hover:dark:text-gray-200"
+              >
+                <svg
+                  class="h-6 w-6 fill-current md:h-8 md:w-8"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+                </svg>
+                <span>Recent posts</span>
+              </a>
+            ) : (
+              <div />
+            )
+          }
+          {
+            page.url.next ? (
+              <a
+                href={page.url.next}
+                class="mx-5 my-10 flex items-center space-x-2 text-gray-500 hover:text-gray-900 dark:text-gray-300 hover:dark:text-gray-200"
+              >
+                <span>Older Posts</span>
+                <svg
+                  class="h-6 w-6 fill-current md:h-8 md:w-8"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                </svg>
+              </a>
+            ) : (
+              <div />
+            )
+          }
+        </div>
+      </div>
+      <div class="lg:cols-span-1">
+        <PinnedPosts />
+      </div>
+    </div>
+  </BlogContainer>
+</BaseLayout>
