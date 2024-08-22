@@ -4,6 +4,7 @@ import { brand } from "../common/companyItems";
 ---
 
 <div class="flex flex-col">
+  <!--brand logo block -->
   <div class="grid justify-center lg:justify-start">
     <div class="mb-6 flex items-center space-x-3">
       <!-- <img
@@ -34,6 +35,95 @@ import { brand } from "../common/companyItems";
         >{brand.company.name}</span
       >
     </div>
+  </div>
+  <!--newsletter block -->
+  <!-- <div class="mb-8 mr-8 grid justify-center bg-gray-900 lg:justify-start">
+    <h2 class="mb-4 text-center text-xl font-bold text-white lg:text-left">
+      Sign Up For Our <span class="text-primary-500">Newsletter</span>
+    </h2>
+    <p class="mb-4 text-center font-normal text-gray-200 lg:text-left">
+      Keep up with all the amazing things we are accomplishing
+    </p>
+    {
+      /*change action, data-sv-form, and data-uid, redirect_url    
+      maybe edit data-options
+      move to envs
+      do this tomorrow*/
+    }
+    <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+    <form
+      action="https://app.convertkit.com/forms/6910523/subscriptions"
+      class="seva-form formkit-form w-full max-w-md"
+      method="post"
+      data-sv-form="6910523"
+      data-uid="aaa2766697"
+      data-format="inline"
+      data-version="5"
+      data-options='{"settings":{"after_subscribe":{"action":"redirect","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":"http://localhost:4321/"},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":true,"url":"https://convertkit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}'
+      min-width="400 500 600 700 800"
+    >
+      <div data-style="clean" class="flex items-start">
+        <ul
+          class="formkit-alert formkit-alert-error"
+          data-element="errors"
+          data-group="alert"
+        >
+        </ul>
+        <div
+          data-element="fields"
+          data-stacked="false"
+          class="seva-fields formkit-fields flex w-full max-w-md items-center"
+        >
+          <div class="formkit-field relative mr-3 w-full">
+            <label
+              for="member_email"
+              class="mb-2 hidden text-sm font-medium text-gray-900 dark:text-gray-300"
+              >Email address</label
+            >
+            <div
+              class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
+            >
+              <svg
+                class="h-4 w-4 text-gray-500 dark:text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                ></path>
+                <path
+                  d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+                ></path>
+              </svg>
+            </div>
+            <input
+              class="formkit-input block w-full border border-gray-300 bg-white p-2.5 pl-10 text-sm text-gray-900 hover:ring-1 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+              name="email_address"
+              aria-label="Email Address"
+              placeholder="Your email address..."
+              required=""
+              type="email"
+            />
+          </div>
+          <button
+            data-element="submit"
+            class="cursor-pointer bg-primary-500 px-4 py-2 text-center font-bold text-white hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700"
+            ><div class="formkit-spinner">
+              <div></div><div></div><div></div>
+            </div><span class="">Subscribe</span></button
+          >
+        </div>
+      </div>
+      <div
+        class="flex items-center justify-center text-gray-500 dark:text-gray-400"
+      >
+      </div>
+    </form>
+  </div> -->
+
+  <!--extra content blocks -->
+  <div class="grid justify-center lg:justify-start">
     <div
       class="mb-6 flex items-center justify-center space-x-3 text-sm font-normal text-gray-100 lg:justify-start"
     >

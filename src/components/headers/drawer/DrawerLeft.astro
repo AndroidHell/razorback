@@ -1,0 +1,134 @@
+---
+import { Icon } from "astro-icon/components";
+import { navigationItems as navItems } from "../navigationItems";
+import DrawerCta from "./Drawercta.astro";
+import DrawerThemeToggle from "./DrawerThemeToggle.astro";
+---
+
+<div
+  id="drawer-navigation-left"
+  class="fixed left-0 top-0 z-50 h-screen w-64 -translate-x-full overflow-y-auto bg-primary-500 p-0 transition-transform dark:bg-gray-800"
+  tabindex="-1"
+  aria-labelledby="drawer-navigation-label"
+>
+  <h5
+    id="drawer-navigation-label"
+    class="w-full bg-white p-6 py-8 text-base font-semibold uppercase text-gray-600 dark:bg-gray-700 dark:text-gray-200"
+  >
+    YCWD
+  </h5>
+  <button
+    type="button"
+    data-drawer-hide="drawer-navigation-left"
+    aria-controls="drawer-navigation-left"
+    class="absolute end-3 top-7 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-600 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+  >
+    <svg
+      class="h-3 w-3"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 14 14"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path>
+    </svg>
+    <span class="sr-only">Close menu</span>
+  </button>
+
+  <div class="overflow-y-auto p-4 py-4">
+    <ul class="space-y-2 font-medium">
+      <!-- dropdown -->
+      {
+        navItems.map((item) => (
+          <>
+            {item.children && (
+              <li>
+                <button
+                  type="button"
+                  class="group flex w-full items-center rounded-lg p-2 text-gray-100 transition duration-75 hover:bg-gray-100 hover:text-primary-400 dark:text-white dark:hover:bg-gray-700"
+                  aria-controls="dropdown-drawer"
+                  data-collapse-toggle="dropdown-drawer"
+                >
+                  {/* fix styling */}
+                  <Icon
+                    name={item.icon}
+                    class="h-5 w-5 flex-shrink-0 text-gray-100 transition duration-75  group-hover:text-primary-400 dark:text-gray-400 dark:group-hover:text-white"
+                  />
+                  <span class="ms-3 flex-1 whitespace-nowrap text-left rtl:text-right">
+                    {item.title}
+                  </span>
+                  <svg
+                    class="h-3 w-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 4 4 4-4"
+                    />
+                  </svg>
+                </button>
+                <ul id="dropdown-drawer" class="hidden space-y-2 py-2">
+                  {item.children.map((child) => (
+                    <li>
+                      <a
+                        href={child.path}
+                        class="group flex w-full items-center rounded-lg p-2 pl-11 text-gray-200 transition duration-75 hover:bg-gray-100 hover:text-primary-400 dark:text-gray-400 dark:hover:bg-gray-700"
+                      >
+                        <span>{child.title}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            )}
+            {!item.children && (
+              <li>
+                <a
+                  href={item.path}
+                  class="group flex items-center rounded-lg p-2 text-gray-100 hover:bg-gray-100 hover:text-primary-400 dark:text-white dark:hover:bg-gray-700"
+                >
+                  <Icon
+                    name={item.icon}
+                    class="h-5 w-5 flex-shrink-0 text-gray-100 transition duration-75 group-hover:text-primary-500 dark:text-gray-400 dark:group-hover:text-white"
+                  />
+                  <span class="ms-3 flex-1 whitespace-nowrap">
+                    {item.title}
+                  </span>
+                </a>
+              </li>
+            )}
+          </>
+        ))
+      }
+      <!-- this is needed if not iterating over contact us in data object when using call to action button instead -->
+      <li>
+        <a
+          href="/contact"
+          class="group flex items-center rounded-lg p-2 text-gray-100 hover:bg-gray-100 hover:text-primary-400 dark:text-white dark:hover:bg-gray-700"
+        >
+          <Icon
+            name="contactus"
+            class="h-5 w-5 flex-shrink-0 text-gray-100 transition duration-75 group-hover:text-primary-500 dark:text-gray-400 dark:group-hover:text-white"
+          />
+          <span class="ms-3 flex-1 whitespace-nowrap">Contact Us</span>
+        </a>
+      </li>
+      <!-- -->
+    </ul>
+
+    <hr class="my-4 h-px border-0 bg-gray-100 dark:bg-gray-700" />
+    <DrawerThemeToggle />
+    <DrawerCta />
+  </div>
+</div>

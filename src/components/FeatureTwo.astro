@@ -4,12 +4,15 @@ import featureTwoImage from "../../public/feature-two-image.webp";
 ---
 
 <div class="max-w-screen-xl items-center pb-12 pt-10 md:flex md:pb-36">
-  <div class="p-10 md:w-1/2">
+  <!-- Image Section -->
+  <div class="order-first p-10 md:order-first md:w-1/2">
     <div class="object-center text-center">
-      <Image src={featureTwoImage} alt="illustration for about us page" />
+      <Image src={featureTwoImage} alt="illustration for Feature Two" />
     </div>
   </div>
-  <div class="p-5 md:w-1/2">
+
+  <!-- Text Section -->
+  <div class="order-last p-5 md:order-last md:w-1/2">
     <div class="text prose">
       <span
         class="border-b-2 border-primary-500 uppercase text-gray-500 dark:text-gray-200"

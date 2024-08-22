@@ -1,13 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
 import { navigationItems as navItems } from "../navigationItems";
-import DrawerCta from "../Drawer/Drawercta.astro";
-import DrawerThemeToggle from "../Drawer/DrawerThemeToggle.astro";
+import DrawerCta from "./Drawercta.astro";
+import DrawerThemeToggle from "./DrawerThemeToggle.astro";
 ---
 
 <div
-  id="drawer-navigation"
-  class="fixed left-0 top-0 z-50 h-screen w-64 -translate-x-full overflow-y-auto bg-primary-500 p-0 transition-transform dark:bg-gray-800"
+  id="drawer-navigation-right"
+  class="fixed right-0 top-0 z-50 h-screen w-64 translate-x-full overflow-y-auto bg-primary-500 p-0 transition-transform dark:bg-gray-800"
   tabindex="-1"
   aria-labelledby="drawer-navigation-label"
 >
@@ -19,8 +19,8 @@ import DrawerThemeToggle from "../Drawer/DrawerThemeToggle.astro";
   </h5>
   <button
     type="button"
-    data-drawer-hide="drawer-navigation"
-    aria-controls="drawer-navigation"
+    data-drawer-hide="drawer-navigation-right"
+    aria-controls="drawer-navigation-right"
     class="absolute end-3 top-7 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-600 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
   >
     <svg
@@ -129,6 +129,6 @@ import DrawerThemeToggle from "../Drawer/DrawerThemeToggle.astro";
 
     <hr class="my-4 h-px border-0 bg-gray-100 dark:bg-gray-700" />
     <DrawerThemeToggle />
-    <!-- <DrawerCta /> -->
+    <DrawerCta />
   </div>
 </div>
