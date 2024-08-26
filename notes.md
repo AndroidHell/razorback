@@ -40,3 +40,11 @@
 - netlify forms needs user email added in form notifications
 - no need for env var with this method, env var is just for web3forms
 -
+
+### For Monday
+
+- header is complete for Custom components
+- hero will be block text on left and image slider on right, possible animated gif in the future
+- feature/services will be a marquee, need to relearn fonts, make bold top and bottom borders and use fat serif font, maybe make every other feature upside down
+- footer will be similar to hero but image on left behind brand, newsletter, info 1, info 2, then right will be flat with site map, hours, etc
+- come up with component theme name
