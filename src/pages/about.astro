@@ -1,19 +1,27 @@
 ---
 import Containter from "../components/Container.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import SectionHead from "../components/heros/innerPages/HeroInner.astro";
+import PageBanner from "../components/PageBanner.astro";
 import AboutBody from "../components/AboutBody.astro";
+import SectionBreak from "../components/SectionBreak.astro";
 import CtaBanner from "../components/CtaBanner.astro";
 
 const title = "About Us";
 const desc = "";
-const image = "/hero-inner.webp";
+const image = "/page-banner-image.webp";
 ---
 
 <BaseLayout title="About Us" description="About Us">
-  <SectionHead title={title} desc={desc} image={image} />
+  <PageBanner title={title} desc={desc} image={image} />
   <Containter>
+    <SectionBreak
+      backgroundColor="bg-primary-600"
+      stripeColor="bg-accent-400"
+      textColor="text-white"
+      text="RZBK"
+    />
     <AboutBody />
   </Containter>
+
   <CtaBanner />
 </BaseLayout>

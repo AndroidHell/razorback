@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
 import BlogContainer from "../../../../components/BlogContainer.astro";
-import HeroInner from "../../../../components/heros/innerPages/HeroInner.astro";
+import PageBanner from "../../../../components/PageBanner.astro";
+import SectionBreak from "../../../../components/SectionBreak.astro";
 import NewsCard from "../../../../components/BlogCard.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../../../../lib/createSlug";
@@ -41,12 +42,17 @@ const params = Astro.params;
 
 const title = `Blog - ${params.tag}`;
 // const desc = `Posts tagged with "${params.tag}"`;
-const image = "/hero-inner.webp";
+const image = "/page-banner-image.webp";
 ---
 
 <BaseLayout title={"Blog - " + params.tag}>
-  <HeroInner title={title} image={image} />
-
+  <PageBanner title={title} image={image} />
+  <SectionBreak
+    backgroundColor="bg-primary-600"
+    stripeColor="bg-accent-400"
+    textColor="text-white"
+    text="RZBK"
+  />
   <BlogContainer>
     <div class="mt-8 grid grid-cols-1 lg:grid-cols-3">
       <div class="lg:col-span-2">
@@ -137,4 +143,10 @@ const image = "/hero-inner.webp";
       </div>
     </div>
   </BlogContainer>
+  <SectionBreak
+    backgroundColor="bg-accent-400"
+    stripeColor="bg-primary-600"
+    textColor="text-white"
+    text="RZBK"
+  />
 </BaseLayout>

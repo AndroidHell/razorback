@@ -1,0 +1,19 @@
+---
+import Container from "../../components/Container.astro";
+import MenuLayout from "../../layouts/MenuLayout.astro";
+import MenuNav from "../../components/menu/MenuNav.astro";
+
+const currentPage = "/menu/LunchMenu";
+
+const title = "Our Food Page";
+const desc = "";
+const image = "/page-banner-image.webp";
+---
+
+<MenuLayout title="Menu | Lunch" description="Lunch Menu">
+  <Container>
+    <MenuNav currentPage={currentPage} />
+
+    this is a lunch menu
+  </Container>
+</MenuLayout>

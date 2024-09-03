@@ -1,12 +1,12 @@
 ---
 import Containter from "../components/Container.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import HeroInner from "../components/heros/innerPages/HeroInner.astro";
+import HeroInner from "../components/PageBanner.astro";
 import ContactInfo from "../components/ContactInfo.astro";
 
 const title = "Contact Us";
 const desc = "";
-const image = "/hero-inner.webp";
+const image = "/page-banner-image.webp";
 ---
 
 <!--
@@ -16,7 +16,9 @@ netflify forms is way cleaner but 100 submission limit
 -->
 <BaseLayout title="Contact Us" description="Contact Us">
   <HeroInner title={title} desc={desc} image={image} />
-  <Containter class="text-gray-600 dark:text-gray-300">
+  <Containter
+    class="max-w-screen-xl p-4 text-gray-600 dark:text-gray-300 md:py-8"
+  >
     <div class="grid grid-cols-1 lg:grid-cols-3">
       <div class="lg:col-span-2">
         <section class="mt-16 bg-white dark:bg-gray-800 lg:mt-0">

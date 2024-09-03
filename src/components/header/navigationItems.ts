@@ -18,13 +18,15 @@ export const navigationItems: NavItem[] = [
     icon: "about",
   },
   {
-    title: "Projects",
-    path: "#",
+    title: "Menu",
+    path: "/menu/LunchMenu",
     icon: "projects",
-    children: [
-      { title: "Project 1", path: "/projects" },
-      { title: "Project 2", path: "/projects" },
-    ],
+    // children: [
+    //   { title: "Lunch", path: "/menu#lunch" },
+    //   { title: "Dinner", path: "/menu#dinner" },
+    //   { title: "Cocktails", path: "/menu#cocktails" },
+    //   { title: "Brunch", path: "/menu#brunch" },
+    // ],
   },
   {
     title: "Reviews",
@@ -36,9 +38,4 @@ export const navigationItems: NavItem[] = [
     path: "/blog",
     icon: "blog",
   },
-  // {
-  //   title: "Contact Us",
-  //   path: "/contact",
-  //   icon: "contactus",
-  // },
 ];
