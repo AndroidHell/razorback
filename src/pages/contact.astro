@@ -3,6 +3,8 @@ import Containter from "../components/Container.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroInner from "../components/PageBanner.astro";
 import ContactInfo from "../components/ContactInfo.astro";
+import SectionBreak from "../components/SectionBreak.astro";
+import CtaBanner from "../components/CtaBanner.astro";
 
 const title = "Contact Us";
 const desc = "";
@@ -16,31 +18,38 @@ netflify forms is way cleaner but 100 submission limit
 -->
 <BaseLayout title="Contact Us" description="Contact Us">
   <HeroInner title={title} desc={desc} image={image} />
-  <Containter
-    class="max-w-screen-xl p-4 text-gray-600 dark:text-gray-300 md:py-8"
-  >
+  <Containter class="text-gray-600 dark:text-gray-300">
+    <SectionBreak
+      backgroundColor="bg-primary-600"
+      stripeColor="bg-accent-400"
+      textColor="text-white"
+      text="RZBK"
+    />
     <div class="grid grid-cols-1 lg:grid-cols-3">
       <div class="lg:col-span-2">
-        <section class="mt-16 bg-white dark:bg-gray-800 lg:mt-0">
-          <div class="mx-auto max-w-screen-md px-4 py-8 lg:pb-4 lg:pt-16">
-            <div class="text prose">
+        <section class="bg-secondary-600 dark:bg-gray-800 lg:mt-0">
+          <div class="mx-auto max-w-screen-md px-4 py-8 lg:py-24">
+            <p class="mb-4">
               <span
-                class="border-b-2 border-primary-500 uppercase text-gray-500 dark:text-gray-200"
-                >Contact</span
+                class="text-2xl font-light uppercase tracking-wide text-white dark:text-gray-200"
               >
-              <h2
-                class="my-4 text-3xl font-bold text-gray-600 dark:text-white sm:text-4xl"
+                Contact:
+              </span>
+
+              <span
+                class="block text-4xl font-medium text-secondary-200 dark:text-secondary-500 lg:text-5xl"
               >
-                Let's <span class="text-primary-500">Talk</span>
-              </h2>
-              <div class="text-justify text-gray-700 dark:text-gray-200">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Aliquid, commodi doloremque, fugiat illum magni minus nisi
-                  nulla numquam obcaecati placeat quia, repellat tempore
-                  voluptatum.
-                </p>
-              </div>
+                Let's get in touch
+              </span>
+            </p>
+
+            <div
+              class="mb-8 text-justify text-lg text-gray-200 dark:text-gray-200 md:text-2xl"
+            >
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Aliquid, commodi doloremque.
+              </p>
             </div>
             <form
               name="contact"
@@ -54,14 +63,14 @@ netflify forms is way cleaner but 100 submission limit
               <div>
                 <label
                   for="name"
-                  class="mb-2 block text-lg font-medium text-gray-600 dark:text-gray-300"
+                  class="mb-2 block text-lg font-medium text-gray-100 dark:text-gray-300"
                   >Your name</label
                 >
                 <input
                   type="text"
                   name="name"
                   id="name"
-                  class="block w-full rounded-lg border border-gray-300 bg-white p-4 text-sm text-gray-900 hover:ring-1 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+                  class="block w-full bg-white p-4 text-base text-gray-600 placeholder-gray-600 ring-primary-500 hover:ring-8 focus:ring-8 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:placeholder-gray-200 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                   placeholder="John Smith"
                   required
                 />
@@ -69,14 +78,14 @@ netflify forms is way cleaner but 100 submission limit
               <div>
                 <label
                   for="email"
-                  class="mb-2 block text-lg font-medium text-gray-600 dark:text-gray-300"
+                  class="mb-2 block text-lg font-medium text-gray-100 dark:text-gray-300"
                   >Your email</label
                 >
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  class="block w-full rounded-lg border border-gray-300 bg-white p-4 text-sm text-gray-900 hover:ring-1 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+                  class="block w-full bg-white p-4 text-base text-gray-600 placeholder-gray-600 ring-primary-500 hover:ring-8 focus:ring-8 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:placeholder-gray-200 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                   placeholder="john.smith@gmail.com"
                   required
                 />
@@ -84,14 +93,14 @@ netflify forms is way cleaner but 100 submission limit
               <div>
                 <label
                   for="subject"
-                  class="mb-2 block text-lg font-medium text-gray-600 dark:text-gray-300"
+                  class="mb-2 block text-lg font-medium text-gray-100 dark:text-gray-300"
                   >Subject</label
                 >
                 <input
                   type="text"
                   name="subject"
                   id="subject"
-                  class="block w-full rounded-lg border border-gray-300 bg-white p-4 text-sm text-gray-900 hover:ring-1 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+                  class="block w-full bg-white p-4 text-base text-gray-600 placeholder-gray-600 ring-primary-500 hover:ring-8 focus:ring-8 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:placeholder-gray-200 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                   placeholder="Let us know how we can help you"
                   required
                 />
@@ -99,7 +108,7 @@ netflify forms is way cleaner but 100 submission limit
               <div class="sm:col-span-2">
                 <label
                   for="message"
-                  class="mb-2 block text-lg font-medium text-gray-600 dark:text-gray-300"
+                  class="mb-2 block text-lg font-medium text-gray-100 dark:text-gray-300"
                   >Your message</label
                 >
                 <textarea
@@ -107,22 +116,28 @@ netflify forms is way cleaner but 100 submission limit
                   name="message"
                   rows="6"
                   minlength="10"
-                  class="block w-full rounded-lg border border-gray-300 bg-white p-4 text-sm text-gray-900 hover:ring-1 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+                  class="block w-full bg-white p-4 text-base text-gray-600 placeholder-gray-600 ring-primary-500 hover:ring-8 focus:ring-8 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:placeholder-gray-200 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                   placeholder="Leave a comment..."
                   required></textarea>
               </div>
               <button
                 type="submit"
-                class="bg-primary-500 px-4 py-2 text-center font-bold text-white hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700"
+                class="bg-white px-4 py-2 text-center font-bold text-primary-500 hover:bg-primary-500 hover:text-white dark:bg-primary-600 dark:text-white dark:hover:bg-primary-700"
                 >Send message</button
               >
             </form>
           </div>
         </section>
       </div>
-      <div class="content-center lg:col-span-1">
-        <ContactInfo />
-      </div>
+
+      <ContactInfo />
     </div>
+    <SectionBreak
+      backgroundColor="bg-primary-600"
+      stripeColor="bg-accent-400"
+      textColor="text-white"
+      text="RZBK"
+    />
+    <CtaBanner />
   </Containter>
 </BaseLayout>

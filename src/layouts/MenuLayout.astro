@@ -3,7 +3,8 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/header/Header.astro";
 import Footer from "../components/Footer.astro";
 import MenuNav from "../components/menu/MenuNav.astro";
-import CtaBanner from "../components/CtaBanner.astro";
+import MenuBanner from "../components/MenuBanner.astro";
+import SectionBreak from "../components/SectionBreak.astro";
 
 const { title, description } = Astro.props;
 ---
@@ -15,12 +16,21 @@ const { title, description } = Astro.props;
   </head>
   <body class="flex min-h-screen flex-col bg-white dark:bg-gray-800">
     <Header />
-    <div class="h-36 border-b-8 border-black bg-secondary-600"></div>
+    <div
+      class="h-44 border-b-8 border-black bg-secondary-600 dark:border-primary-900"
+    >
+    </div>
 
     <div class="flex-grow">
       <slot />
     </div>
-    <CtaBanner />
+    <!-- <SectionBreak
+      backgroundColor="bg-secondary-600"
+      stripeColor="bg-accent-400"
+      textColor="text-white"
+      text="RZBK"
+    /> -->
+    <MenuBanner />
     <Footer />
     <script src="../../node_modules/flowbite/dist/flowbite.min.js"></script>
   </body>

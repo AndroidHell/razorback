@@ -5,15 +5,162 @@ import MenuNav from "../../components/menu/MenuNav.astro";
 
 const currentPage = "/menu/LunchMenu";
 
-const title = "Our Food Page";
-const desc = "";
-const image = "/page-banner-image.webp";
+const lunchSmallPlate = [
+  {
+    title: "Roasted Cauliflower Bites",
+    price: "$6",
+    description:
+      "Smoky, roasted cauliflower florets served with a tangy tahini dipping sauce and a sprinkle of toasted sesame seeds.",
+  },
+  {
+    title: "Avocado & Citrus Tartine",
+    price: "$6",
+    description:
+      "Fresh avocado slices atop crusty sourdough, finished with vibrant citrus segments, microgreens, and a hint of chili flakes.",
+  },
+  {
+    title: "Stuffed Sweet Potato Skins",
+    price: "$4",
+    description:
+      "Crispy sweet potato skins filled with a creamy cashew cheese, black beans, and topped with fresh pico de gallo.",
+  },
+  {
+    title: "Zucchini Fritters",
+    price: "$5",
+    description:
+      "Lightly fried zucchini fritters served with a refreshing cucumber yogurt dip, perfect for a light, crispy bite.",
+  },
+  {
+    title: "Marinated Mushroom Skewers",
+    price: "$4",
+    description:
+      "Grilled marinated mushrooms on skewers, drizzled with a balsamic reduction and topped with fresh herbs.",
+  },
+  {
+    title: "Chickpea & Spinach Patties",
+    price: "$5",
+    description:
+      "Crispy on the outside, tender on the inside, these chickpea and spinach patties are served with a zesty lemon garlic aioli.",
+  },
+];
+
+const lunchBigPlate = [
+  {
+    title: "Grilled Portobello Steak",
+    price: "$12",
+    description:
+      "A marinated and grilled Portobello mushroom served over creamy polenta, topped with a balsamic glaze and roasted cherry tomatoes.",
+  },
+  {
+    title: "Butternut Squash Risotto",
+    price: "$14",
+    description:
+      "Creamy Arborio rice cooked with roasted butternut squash, fresh sage, and a drizzle of truffle oil, finished with toasted pine nuts.",
+  },
+  {
+    title: "Spiced Chickpea & Sweet Potato Curry",
+    price: "$10",
+    description:
+      "A rich, spiced coconut curry with tender sweet potatoes and chickpeas, served with jasmine rice and fresh cilantro.",
+  },
+  {
+    title: "Stuffed Bell Peppers",
+    price: "$8",
+    description:
+      "Roasted bell peppers filled with quinoa, black beans, corn, and spices, topped with a zesty avocado crema and fresh pico de gallo.",
+  },
+];
 ---
 
 <MenuLayout title="Menu | Lunch" description="Lunch Menu">
   <Container>
     <MenuNav currentPage={currentPage} />
+    <div class="mx-4 my-16 md:m-16 lg:m-32">
+      <!--small plates -->
+      <div class="my-4 w-full xl:w-1/2">
+        <h1 class="mb-4">
+          <span
+            class="block text-4xl font-medium text-accent-400 dark:text-accent-500 lg:text-5xl"
+          >
+            Small Plates
+          </span>
+        </h1>
 
-    this is a lunch menu
+        <div
+          class="text-justify text-lg text-gray-400 dark:text-gray-200 md:text-2xl"
+        >
+          <p>
+            Savor our delightful plant-based small plates, crafted with fresh,
+            seasonal ingredients. Perfect for sharing or enjoying on your own,
+            these dishes are packed with flavor, nourishment, and love for the
+            planet.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-x-16 lg:grid-cols-2">
+        {
+          lunchSmallPlate.map((item) => (
+            <div class="px-2 py-8">
+              <div class="flex flex-row items-start justify-between">
+                <h2 class="block text-2xl font-medium text-gray-500 dark:text-secondary-500 lg:text-3xl">
+                  {item.title}
+                </h2>
+                <h3 class="block text-3xl font-medium text-gray-600 dark:text-gray-300">
+                  {item.price}
+                </h3>
+              </div>
+              <div>
+                <p class="block w-5/6 text-lg font-light text-gray-600 dark:text-gray-200">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!--big plates -->
+      <div class="my-4 w-full pt-16 xl:w-1/2">
+        <h1 class="mb-4">
+          <span
+            class="block text-4xl font-medium text-accent-400 dark:text-accent-500 lg:text-5xl"
+          >
+            Big Plates
+          </span>
+        </h1>
+
+        <div
+          class="text-justify text-lg text-gray-400 dark:text-gray-200 md:text-2xl"
+        >
+          <p>
+            Indulge in our thoughtfully crafted plant-based entrées, where bold
+            flavors meet wholesome ingredients. Each dish is designed to satisfy
+            your appetite while celebrating the vibrant bounty of the earth.
+          </p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1">
+        {
+          lunchBigPlate.map((item) => (
+            <div class="px-2 py-8">
+              <div class="flex flex-row items-start justify-between">
+                <h2 class="block text-2xl font-medium text-gray-500 dark:text-secondary-500 lg:text-3xl">
+                  {item.title}
+                </h2>
+                <h3 class="block text-3xl font-medium text-gray-600 dark:text-gray-300">
+                  {item.price}
+                </h3>
+              </div>
+              <div>
+                <p class="block w-2/3 text-lg font-light text-gray-600 dark:text-gray-200">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
   </Container>
 </MenuLayout>

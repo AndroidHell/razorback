@@ -3,10 +3,10 @@ const { backgroundColor, stripeColor, textColor, text } = Astro.props;
 ---
 
 <div
-  class={`${backgroundColor} inset-0 flex h-full w-full items-center justify-end object-cover`}
+  class={`${backgroundColor} inset-0 flex h-full dark:bg-gray-900 w-full items-center justify-end object-cover`}
 >
   <div
-    class={`${stripeColor} mr-4 h-14 w-full dark:bg-primary-600 md:h-16 lg:h-24`}
+    class={`${stripeColor} mr-4 h-14 w-full dark:${stripeColor} md:h-16 lg:h-24`}
   >
   </div>
   <h1

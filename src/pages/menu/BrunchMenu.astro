@@ -5,15 +5,93 @@ import MenuNav from "../../components/menu/MenuNav.astro";
 
 const currentPage = "/menu/BrunchMenu";
 
-const title = "Our Food Page";
-const desc = "";
-const image = "/page-banner-image.webp";
+const brunchMenu = [
+  {
+    title: "Avocado Toast with Cherry Tomatoes",
+    price: "$12",
+    description:
+      "Crispy sourdough topped with creamy avocado, cherry tomatoes, and a sprinkle of sea salt and cracked black pepper. Finished with a drizzle of balsamic glaze and fresh basil.",
+  },
+  {
+    title: "Breakfast Burrito",
+    price: "$8",
+    description:
+      "A hearty burrito filled with scrambled tofu, black beans, sautéed peppers and onions, avocado, and a zesty salsa. Served with a side of crisp mixed greens.",
+  },
+  {
+    title: "Blueberry Pancakes",
+    price: "$10",
+    description:
+      "Fluffy pancakes studded with juicy blueberries, served with a dollop of vegan whipped cream and a drizzle of pure maple syrup. A sweet and satisfying start to your brunch.",
+  },
+  {
+    title: "Quinoa Salad with Roasted Vegetables",
+    price: "$10",
+    description:
+      "A refreshing salad featuring quinoa, roasted seasonal vegetables, and mixed greens, tossed in a lemon-tahini dressing. Garnished with toasted pumpkin seeds and fresh herbs.",
+  },
+
+  {
+    title: "Tofu Scramble",
+    price: "$16",
+    description:
+      "A savory scramble of crumbled tofu seasoned with turmeric, cumin, and smoked paprika, mixed with sautéed bell peppers, onions, and fresh spinach. Finished with a sprinkle of nutritional yeast for a cheesy flavor and garnished with fresh chives.",
+  },
+  {
+    title: "Mushroom & Spinach Frittata",
+    price: "$12",
+    description:
+      "A savory frittata made with sautéed mushrooms, fresh spinach, and a blend of plant-based cheeses, served with a side of mixed greens and a tangy balsamic vinaigrette.",
+  },
+];
 ---
 
 <MenuLayout title="Menu | Brunch" description="Brunch Menu">
   <Container>
     <MenuNav currentPage={currentPage} />
+    <div class="mx-4 my-16 md:m-16 lg:m-32">
+      <!--dinner entrees -->
+      <div class="my-4 w-full xl:w-1/2">
+        <h1 class="mb-4">
+          <span
+            class="block text-4xl font-medium text-accent-400 dark:text-accent-500 lg:text-5xl"
+          >
+            Brunch Specials
+          </span>
+        </h1>
 
-    this is a brunch menu
+        <div
+          class="text-justify text-lg text-gray-400 dark:text-gray-200 md:text-2xl"
+        >
+          <p>
+            Savor our delectable brunch offerings, each crafted with fresh,
+            high-quality ingredients. Whether you're in the mood for a hearty
+            meal or a light bite, our brunch menu has something to delight your
+            taste buds.
+          </p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1">
+        {
+          brunchMenu.map((item) => (
+            <div class="px-2 py-8">
+              <div class="flex flex-row items-start justify-between">
+                <h2 class="block text-2xl font-medium text-gray-500 dark:text-secondary-500 lg:text-3xl">
+                  {item.title}
+                </h2>
+                <h3 class="block text-3xl font-medium text-gray-600 dark:text-gray-300">
+                  {item.price}
+                </h3>
+              </div>
+              <div>
+                <p class="block w-2/3 text-lg font-light text-gray-600 dark:text-gray-200">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
   </Container>
 </MenuLayout>

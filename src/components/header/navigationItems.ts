@@ -12,30 +12,42 @@ export const navigationItems: NavItem[] = [
     path: "/",
     icon: "home",
   },
+
+  // we got options!
+  {
+    title: "Menu Single",
+    path: "/menu",
+    icon: "projects",
+  },
+  {
+    title: "Menu Tabbed",
+    path: "/menu/LunchMenu",
+    icon: "projects",
+  },
+  {
+    title: "Menu Sub",
+    path: "/menu/LunchMenu",
+    icon: "projects",
+    children: [
+      { title: "Lunch", path: "/menu/LunchMenu" },
+      { title: "Dinner", path: "/menu/DinnerMenu" },
+      { title: "Cocktails", path: "/menu/CocktailMenu" },
+      { title: "Brunch", path: "/menu/BrunchMenu" },
+    ],
+  },
   {
     title: "About Us",
     path: "/about",
     icon: "about",
   },
-  {
-    title: "Menu",
-    path: "/menu/LunchMenu",
-    icon: "projects",
-    // children: [
-    //   { title: "Lunch", path: "/menu#lunch" },
-    //   { title: "Dinner", path: "/menu#dinner" },
-    //   { title: "Cocktails", path: "/menu#cocktails" },
-    //   { title: "Brunch", path: "/menu#brunch" },
-    // ],
-  },
-  {
-    title: "Reviews",
-    path: "/reviews",
-    icon: "reviews",
-  },
-  {
-    title: "Blog",
-    path: "/blog",
-    icon: "blog",
-  },
+  // {
+  //   title: "Reviews",
+  //   path: "/reviews",
+  //   icon: "reviews",
+  // },
+  // {
+  //   title: "Blog",
+  //   path: "/blog",
+  //   icon: "blog",
+  // },
 ];

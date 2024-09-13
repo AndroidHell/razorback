@@ -5,15 +5,149 @@ import MenuNav from "../../components/menu/MenuNav.astro";
 
 const currentPage = "/menu/DinnerMenu";
 
-const title = "Our Food Page";
-const desc = "";
-const image = "/page-banner-image.webp";
+const dinnerAppetizers = [
+  {
+    title: "Crispy Cauliflower Wings",
+    price: "$10",
+    description:
+      "Golden, crispy cauliflower florets tossed in your choice of tangy buffalo or sweet chili sauce, served with a side of creamy vegan ranch.",
+  },
+  {
+    title: "Spinach & Artichoke Dip",
+    price: "$6",
+    description:
+      "A warm and creamy blend of spinach, artichokes, and cashew-based cheese, served with freshly toasted pita and vegetable crudités.",
+  },
+  {
+    title: "Avocado Spring Rolls",
+    price: "$8",
+    description:
+      "Fresh avocado, crisp veggies, and rice noodles wrapped in delicate rice paper, served with a side of peanut dipping sauce.",
+  },
+  {
+    title: "Roasted Beet & Walnut Salad",
+    price: "$5",
+    description:
+      "Sweet roasted beets, crunchy walnuts, and mixed greens, tossed in a light citrus vinaigrette and topped with shaved fennel.",
+  },
+];
+
+const dinnerEntrees = [
+  {
+    title: "Eggplant Parmesan",
+    price: "$16",
+    description:
+      "Breaded and baked eggplant slices layered with rich tomato sauce, vegan mozzarella, and fresh basil, served with a side of garlic-roasted broccolini.",
+  },
+  {
+    title: "Mushroom Stroganoff",
+    price: "$18",
+    description:
+      "Creamy cashew-based sauce with sautéed mushrooms and caramelized onions, served over a bed of tender noodles and garnished with fresh parsley.",
+  },
+  {
+    title: "Roasted Vegetable & Quinoa Stuffed Acorn Squash",
+    price: "$14",
+    description:
+      "Sweet acorn squash roasted to perfection and filled with quinoa, cranberries, kale, and pecans, drizzled with a maple-balsamic glaze.",
+  },
+  {
+    title: "BBQ Jackfruit Tacos",
+    price: "$14",
+    description:
+      "Smoky and savory BBQ jackfruit served in soft corn tortillas, topped with crunchy slaw, avocado slices, and a drizzle of tangy lime crema.",
+  },
+];
 ---
 
 <MenuLayout title="Menu | Dinner" description="Dinner Menu">
   <Container>
     <MenuNav currentPage={currentPage} />
+    <div class="mx-4 my-16 md:m-16 lg:m-32">
+      <!--dinner appetizers -->
+      <div class="my-4 w-full xl:w-1/2">
+        <h1 class="mb-4">
+          <span
+            class="block text-4xl font-medium text-accent-400 dark:text-accent-500 lg:text-5xl"
+          >
+            Dinner Appetizers
+          </span>
+        </h1>
 
-    this is a dinner menu
+        <div
+          class="text-justify text-lg text-gray-400 dark:text-gray-200 md:text-2xl"
+        >
+          <p>
+            Start your meal with our tantalizing vegan appetizers, crafted to
+            delight your taste buds with fresh, plant-based ingredients and bold
+            flavors. Perfect for sharing or savoring on your own.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-x-16 lg:grid-cols-2">
+        {
+          dinnerAppetizers.map((item) => (
+            <div class="px-2 py-8">
+              <div class="flex flex-row items-start justify-between">
+                <h2 class="block text-2xl font-medium text-gray-500 dark:text-secondary-500 lg:text-3xl">
+                  {item.title}
+                </h2>
+                <h3 class="block text-3xl font-medium text-gray-600 dark:text-gray-300">
+                  {item.price}
+                </h3>
+              </div>
+              <div>
+                <p class="block w-5/6 text-lg font-light text-gray-600 dark:text-gray-200">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!--dinner entrees -->
+      <div class="my-4 w-full pt-16 xl:w-1/2">
+        <h1 class="mb-4">
+          <span
+            class="block text-4xl font-medium text-accent-400 dark:text-accent-500 lg:text-5xl"
+          >
+            Dinner Entrées
+          </span>
+        </h1>
+
+        <div
+          class="text-justify text-lg text-gray-400 dark:text-gray-200 md:text-2xl"
+        >
+          <p>
+            Experience the richness of plant-based dining with our delectable
+            vegan entrées, each thoughtfully crafted with bold flavors,
+            wholesome ingredients, and a touch of creativity.
+          </p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1">
+        {
+          dinnerEntrees.map((item) => (
+            <div class="px-2 py-8">
+              <div class="flex flex-row items-start justify-between">
+                <h2 class="block text-2xl font-medium text-gray-500 dark:text-secondary-500 lg:text-3xl">
+                  {item.title}
+                </h2>
+                <h3 class="block text-3xl font-medium text-gray-600 dark:text-gray-300">
+                  {item.price}
+                </h3>
+              </div>
+              <div>
+                <p class="block w-2/3 text-lg font-light text-gray-600 dark:text-gray-200">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
   </Container>
 </MenuLayout>

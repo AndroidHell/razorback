@@ -5,6 +5,7 @@ import SectionHead from "../components/PageBanner.astro";
 import CtaBanner from "../components/CtaBanner.astro";
 
 import MenuNav from "../components/menu/MenuNav.astro";
+import SinglePageMenu from "../pages/menu/SinglePageMenu.astro";
 
 const currentPage = "/menu/LunchMenu";
 
@@ -14,6 +15,12 @@ const image = "/page-banner-image.webp";
 ---
 
 <MenuLayout title="Menu" description="Menu">
-  <Container>You lost or something?</Container>
-  <CtaBanner />
+  <Container>
+    <div
+      class="marquee text-1xl border-b-8 border-black bg-white py-2 pr-4 text-center font-extrabold uppercase text-black dark:border-primary-900 dark:bg-accent-500 dark:text-white md:text-2xl lg:text-4xl"
+    >
+      Menu
+    </div>
+    <SinglePageMenu />
+  </Container>
 </MenuLayout>

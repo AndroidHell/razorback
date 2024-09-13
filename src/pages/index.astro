@@ -5,21 +5,17 @@ import Hero from "../components/Hero.astro";
 import ServicesHead from "../components/ServicesMarquee.astro";
 import AboutBody from "../components/AboutBody.astro";
 import MealFeature from "../components/MealFeature.astro";
-import MasonryGallery from "../components/MasonryGallery.astro";
-import FeaturedReviews from "../components/FeaturedReviews.astro";
-import CtaNewLetter from "../components/CtaNewsLetter.astro";
+import Carousel from "../components/carousel.astro";
 import CtaBanner from "../components/CtaBanner.astro";
 ---
 
 <BaseLayout title="Razorback">
   <Hero />
   <ServicesHead />
-  <MealFeature />
-  <AboutBody />
   <Container>
-    <MasonryGallery />
-    <FeaturedReviews />
+    <MealFeature />
+    <AboutBody />
+    <Carousel />
+    <CtaBanner />
   </Container>
-  <CtaNewLetter />
-  <CtaBanner />
 </BaseLayout>

@@ -43,8 +43,12 @@
 
 ### For Thursday
 
-- censor hero title
+- redo main ctabanner and link to menu
+- separate ctabanner for menu(just a pic of food or something)
+- friday below
+- censor hero title or change wording
 - finish components for home page
-- finish about page
+- reviews page?
+- contact us page restyle
 - fix heading text for footer to match theme
 - come up with component theme name - razorback(change component lib to just YCWDComponentLibrary)

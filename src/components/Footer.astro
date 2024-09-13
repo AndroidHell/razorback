@@ -5,10 +5,10 @@ const today = new Date();
 <footer class="bg-white dark:bg-primary-600 lg:grid lg:grid-cols-5">
   <div class="relative block h-64 lg:col-span-2 lg:h-full">
     <div
-      class="bg-secondary-600 absolute inset-0 flex h-full w-full items-center justify-end object-cover"
+      class="absolute inset-0 flex h-full w-full items-center justify-end bg-secondary-600 object-cover"
     >
       <div
-        class="bg-accent-400 mr-4 h-14 w-full dark:bg-primary-600 md:h-16 lg:h-24"
+        class="mr-4 h-14 w-full bg-accent-400 dark:bg-primary-600 md:h-16 lg:h-24"
       >
       </div>
       <h1
@@ -31,7 +31,7 @@ const today = new Date();
           </span>
 
           <span
-            class="text-accent-400 block text-2xl font-medium dark:text-white sm:text-3xl"
+            class="block text-2xl font-medium text-accent-400 dark:text-white sm:text-3xl"
           >
             1234 Main st. <br />
             Somewhere, TX 79000
@@ -45,7 +45,7 @@ const today = new Date();
           </span>
 
           <span
-            class="text-accent-400 block text-2xl font-medium dark:text-white sm:text-3xl"
+            class="block text-2xl font-medium text-accent-400 dark:text-white sm:text-3xl"
           >
             555.555.5555
           </span>
@@ -56,7 +56,7 @@ const today = new Date();
           >
             Be here at these times:
           </span>
-          <ul class="text-accent-400 space-y-1 text-lg dark:text-white">
+          <ul class="space-y-1 text-lg text-accent-400 dark:text-white">
             <li>Wednesday to Friday: 10am - 10pm</li>
             <li>Saturday: 12am - 12pm</li>
             <li>Sunday: 9am - 4pm</li>
@@ -183,23 +183,14 @@ const today = new Date();
 
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <p class="text-secondary-600 font-medium dark:text-gray-200">
+          <p class="font-medium text-secondary-600 dark:text-gray-200">
             Eat This
           </p>
 
           <ul class="mt-6 space-y-4 text-sm">
             <li>
               <a
-                href="#"
-                class="text-gray-500 transition hover:opacity-75 dark:text-white"
-              >
-                Breakfast
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#"
+                href="/menu/LunchMenu"
                 class="text-gray-500 transition hover:opacity-75 dark:text-white"
               >
                 Lunch
@@ -208,7 +199,7 @@ const today = new Date();
 
             <li>
               <a
-                href="#"
+                href="/menu/DinnerMenu"
                 class="text-gray-500 transition hover:opacity-75 dark:text-white"
               >
                 Dinner
@@ -217,7 +208,7 @@ const today = new Date();
 
             <li>
               <a
-                href="#"
+                href="/menu/CocktailMenu"
                 class="text-gray-500 transition hover:opacity-75 dark:text-white"
               >
                 Cocktail Hours
@@ -226,7 +217,7 @@ const today = new Date();
 
             <li>
               <a
-                href="#"
+                href="/menu/BrunchMenu"
                 class="text-gray-500 transition hover:opacity-75 dark:text-white"
               >
                 Sunday Brunch
@@ -234,7 +225,7 @@ const today = new Date();
             </li>
             <li>
               <a
-                href="#"
+                href="/contact"
                 class="text-gray-500 transition hover:opacity-75 dark:text-white"
               >
                 Catering for Charity Events
@@ -244,14 +235,14 @@ const today = new Date();
         </div>
 
         <div>
-          <p class="text-secondary-600 font-medium dark:text-gray-200">
+          <p class="font-medium text-secondary-600 dark:text-gray-200">
             Read This
           </p>
 
           <ul class="mt-6 space-y-4 text-sm">
             <li>
               <a
-                href="#"
+                href="/about"
                 class="text-gray-500 transition hover:opacity-75 dark:text-white"
               >
                 About RZBK

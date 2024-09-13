@@ -1,0 +1,396 @@
+---
+import Container from "../../components/Container.astro";
+import MenuLayout from "../../layouts/MenuLayout.astro";
+import MenuNav from "../../components/menu/MenuNav.astro";
+
+const currentPage = "/menu";
+
+const singlePageAppetizers = [
+  {
+    title: "Crispy Cauliflower Wings",
+    price: "$10",
+    description:
+      "Golden, crispy cauliflower florets tossed in your choice of tangy buffalo or sweet chili sauce, served with a side of creamy vegan ranch.",
+  },
+  {
+    title: "Spinach & Artichoke Dip",
+    price: "$6",
+    description:
+      "A warm and creamy blend of spinach, artichokes, and cashew-based cheese, served with freshly toasted pita and vegetable crudités.",
+  },
+  {
+    title: "Avocado Spring Rolls",
+    price: "$8",
+    description:
+      "Fresh avocado, crisp veggies, and rice noodles wrapped in delicate rice paper, served with a side of peanut dipping sauce.",
+  },
+  {
+    title: "Roasted Beet & Walnut Salad",
+    price: "$5",
+    description:
+      "Sweet roasted beets, crunchy walnuts, and mixed greens, tossed in a light citrus vinaigrette and topped with shaved fennel.",
+  },
+];
+
+const singlePageEntrees = [
+  {
+    title: "Eggplant Parmesan",
+    price: "$16",
+    description:
+      "Breaded and baked eggplant slices layered with rich tomato sauce, vegan mozzarella, and fresh basil, served with a side of garlic-roasted broccolini.",
+  },
+  {
+    title: "Mushroom Stroganoff",
+    price: "$18",
+    description:
+      "Creamy cashew-based sauce with sautéed mushrooms and caramelized onions, served over a bed of tender noodles and garnished with fresh parsley.",
+  },
+  {
+    title: "Roasted Vegetable & Quinoa Stuffed Acorn Squash",
+    price: "$14",
+    description:
+      "Sweet acorn squash roasted to perfection and filled with quinoa, cranberries, kale, and pecans, drizzled with a maple-balsamic glaze.",
+  },
+  {
+    title: "BBQ Jackfruit Tacos",
+    price: "$14",
+    description:
+      "Smoky and savory BBQ jackfruit served in soft corn tortillas, topped with crunchy slaw, avocado slices, and a drizzle of tangy lime crema.",
+  },
+];
+
+const singlePageBeerMenu = [
+  {
+    title: "Sierra Nevada Pale Ale",
+    price: "$4",
+    description:
+      "An iconic West Coast Pale Ale with a balanced profile of piney hop bitterness and caramel malt sweetness, showcasing a crisp finish.",
+  },
+  {
+    title: "Dogfish Head 90 Minute IPA",
+    price: "$6",
+    description:
+      "A robust Imperial IPA with intense hop bitterness and a strong malt backbone, featuring notes of citrus, pine, and a hint of caramel.",
+  },
+  {
+    title: "Founders All Day IPA",
+    price: "4",
+    description:
+      "A session IPA designed for easy drinking with a light body and bright hop character, offering flavors of grapefruit, pine, and tropical fruit.",
+  },
+  {
+    title: "New Belgium Fat Tire Amber Ale",
+    price: "$4",
+    description:
+      "A classic amber ale with a smooth, malt-forward profile, featuring flavors of caramel, toffee, and a hint of hops for balance.",
+  },
+  {
+    title: "Guinness Draught",
+    price: "$5",
+    description:
+      "A creamy, nitrogen-infused stout known for its rich, smooth mouthfeel and flavors of roasted coffee, chocolate, and a touch of bitterness.",
+  },
+  {
+    title: "Bells Two Hearted Ale",
+    price: "$5",
+    description:
+      "A well-balanced American IPA with a focus on juicy, tropical hop flavors and a subtle malt sweetness, delivering a refreshing and flavorful experience.",
+  },
+  {
+    title: "Lagunitas Little Sumpin' Sumpin' Ale",
+    price: "$4",
+    description:
+      "A unique American Pale Wheat Ale with a hoppy, citrusy profile and a smooth, slightly fruity finish, perfect for a refreshing drink.",
+  },
+  {
+    title: "The Bruery Terreux – Saison Rue",
+    price: "$8",
+    description:
+      "A farmhouse saison with a complex blend of earthy, fruity, and spicy flavors, featuring notes of citrus zest, peppercorns, and a dry, effervescent finish.",
+  },
+];
+
+const singlePageWineMenu = [
+  {
+    title: "Frey Vineyards Organic Chardonnay",
+    price: "$6",
+    description:
+      "A bright and refreshing Chardonnay with notes of green apple, pear, and a hint of citrus. Its clean finish and balanced acidity make it a versatile choice.",
+  },
+  {
+    title: "Cedar Brook Sauvignon Blanc",
+    price: "$6",
+    description:
+      "A crisp Sauvignon Blanc with vibrant citrus notes of grapefruit and lime, complemented by hints of fresh herbs and a refreshing finish.",
+  },
+  {
+    title: "The Vegan Vine Cabernet Sauvignon",
+    price: "$6",
+    description:
+      "A full-bodied red with rich flavors of dark berries, black currant, and a touch of oak. This Cabernet Sauvignon offers a smooth, velvety texture and a long, satisfying finish.",
+  },
+  {
+    title: "La Crema Sonoma Coast Pinot Noir",
+    price: "$6",
+    description:
+      "A delicate Pinot Noir with layers of red cherry, raspberry, and subtle earthy undertones. Its light tannins and balanced acidity make it a great pairing with a variety of dishes.",
+  },
+];
+
+const singlePageCocktailMenu = [
+  {
+    title: "Classic Margarita",
+    price: "$6",
+    description:
+      "A timeless blend of tequila, triple sec, and freshly squeezed lime juice, served on the rocks with a salted rim. Refreshingly tart with a perfect balance of citrus and tequila.",
+  },
+  {
+    title: "Old Fashioned",
+    price: "$8",
+    description:
+      "A sophisticated mix of bourbon, sugar, and bitters, garnished with an orange twist and a cherry. A well-balanced cocktail with deep flavors of whiskey, caramel, and subtle bitters.",
+  },
+  {
+    title: "Mojito",
+    price: "$8",
+    description:
+      "A refreshing Cuban classic made with white rum, fresh mint leaves, lime juice, sugar, and soda water. Crisp and invigorating, with a burst of mint and citrus.",
+  },
+  {
+    title: "Whiskey Sour",
+    price: "$8",
+    description:
+      "A simple yet elegant mix of whiskey, fresh lemon juice, and a touch of simple syrup, shaken and served over ice. Garnished with a cherry, it’s a delightful blend of tart and sweet.",
+  },
+  {
+    title: "Mai Tai",
+    price: "$8",
+    description:
+      "A tropical classic with rum, orange curaçao, lime juice, and a touch of almond syrup. Garnished with a mint sprig and pineapple slice, it’s a perfect escape to paradise in a glass.",
+  },
+  {
+    title: "Cosmopolitan",
+    price: "$6",
+    description:
+      "A chic and stylish cocktail featuring vodka, triple sec, cranberry juice, and fresh lime juice. Shaken and served in a chilled martini glass with a lime twist, offering a tangy and sophisticated flavor.",
+  },
+];
+---
+
+<div class="mx-4 my-16 md:m-16 lg:m-32">
+  <!--dinner appetizers -->
+  <div class="my-4 w-full xl:w-1/2">
+    <h1 class="mb-4">
+      <span
+        class="block text-4xl font-medium text-accent-400 dark:text-accent-500 lg:text-5xl"
+      >
+        Appetizers
+      </span>
+    </h1>
+
+    <div
+      class="text-justify text-lg text-gray-400 dark:text-gray-200 md:text-2xl"
+    >
+      <p>
+        Start your meal with our tantalizing vegan appetizers, crafted to
+        delight your taste buds with fresh, plant-based ingredients and bold
+        flavors. Perfect for sharing or savoring on your own.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-x-16 lg:grid-cols-2">
+    {
+      singlePageAppetizers.map((item) => (
+        <div class="px-2 py-8">
+          <div class="flex flex-row items-start justify-between">
+            <h2 class="block text-2xl font-medium text-gray-500 dark:text-secondary-500 lg:text-3xl">
+              {item.title}
+            </h2>
+            <h3 class="block text-3xl font-medium text-gray-600 dark:text-gray-300">
+              {item.price}
+            </h3>
+          </div>
+          <div>
+            <p class="block w-5/6 text-lg font-light text-gray-600 dark:text-gray-200">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!--dinner entrees -->
+  <div class="my-4 w-full pt-16 xl:w-1/2">
+    <h1 class="mb-4">
+      <span
+        class="block text-4xl font-medium text-accent-400 dark:text-accent-500 lg:text-5xl"
+      >
+        Entrées
+      </span>
+    </h1>
+
+    <div
+      class="text-justify text-lg text-gray-400 dark:text-gray-200 md:text-2xl"
+    >
+      <p>
+        Experience the richness of plant-based dining with our delectable vegan
+        entrées, each thoughtfully crafted with bold flavors, wholesome
+        ingredients, and a touch of creativity.
+      </p>
+    </div>
+  </div>
+  <div class="grid grid-cols-1">
+    {
+      singlePageEntrees.map((item) => (
+        <div class="px-2 py-8">
+          <div class="flex flex-row items-start justify-between">
+            <h2 class="block text-2xl font-medium text-gray-500 dark:text-secondary-500 lg:text-3xl">
+              {item.title}
+            </h2>
+            <h3 class="block text-3xl font-medium text-gray-600 dark:text-gray-300">
+              {item.price}
+            </h3>
+          </div>
+          <div>
+            <p class="block w-2/3 text-lg font-light text-gray-600 dark:text-gray-200">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<div class="mx-4 my-16 md:m-16 lg:m-32">
+  <!--beer menu -->
+  <div class="my-4 w-full xl:w-1/2">
+    <h1 class="mb-4">
+      <span
+        class="block text-4xl font-medium text-accent-400 dark:text-accent-500 lg:text-5xl"
+      >
+        Beer
+      </span>
+    </h1>
+
+    <div
+      class="text-justify text-lg text-gray-400 dark:text-gray-200 md:text-2xl"
+    >
+      <p>
+        Explore our curated selection of craft beers, each offering unique
+        flavors and character. Whether you’re a fan of hoppy IPAs, rich stouts,
+        or crisp lagers, we have something for every palate.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-x-16 lg:grid-cols-2">
+    {
+      singlePageBeerMenu.map((item) => (
+        <div class="px-2 py-8">
+          <div class="flex flex-row items-start justify-between">
+            <h2 class="block text-2xl font-medium text-gray-500 dark:text-secondary-500 lg:text-3xl">
+              {item.title}
+            </h2>
+            <h3 class="block text-3xl font-medium text-gray-600 dark:text-gray-300">
+              {item.price}
+            </h3>
+          </div>
+          <div>
+            <p class="block w-5/6 text-lg font-light text-gray-600 dark:text-gray-200">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!--wines menu -->
+  <div class="my-4 w-full xl:w-1/2">
+    <h1 class="mb-4">
+      <span
+        class="block text-4xl font-medium text-accent-400 dark:text-accent-500 lg:text-5xl"
+      >
+        Wine
+      </span>
+    </h1>
+
+    <div
+      class="text-justify text-lg text-gray-400 dark:text-gray-200 md:text-2xl"
+    >
+      <p>
+        Discover our thoughtfully curated selection of vegan wines, each crafted
+        without animal-derived fining agents. From crisp whites to bold reds,
+        these wines offer a delightful array of flavors to complement your meal.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-x-16 lg:grid-cols-2">
+    {
+      singlePageWineMenu.map((item) => (
+        <div class="px-2 py-8">
+          <div class="flex flex-row items-start justify-between">
+            <h2 class="block text-2xl font-medium text-gray-500 dark:text-secondary-500 lg:text-3xl">
+              {item.title}
+            </h2>
+            <h3 class="block text-3xl font-medium text-gray-600 dark:text-gray-300">
+              {item.price}
+            </h3>
+          </div>
+          <div>
+            <p class="block w-5/6 text-lg font-light text-gray-600 dark:text-gray-200">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!--cocktail menu -->
+  <div class="my-4 w-full xl:w-1/2">
+    <h1 class="mb-4">
+      <span
+        class="block text-4xl font-medium text-accent-400 dark:text-accent-500 lg:text-5xl"
+      >
+        Cocktails
+      </span>
+    </h1>
+
+    <div
+      class="text-justify text-lg text-gray-400 dark:text-gray-200 md:text-2xl"
+    >
+      <p>
+        Enjoy our selection of expertly crafted cocktails, each designed to
+        offer a refreshing and memorable drinking experience. From classic
+        favorites to innovative creations, there's something for everyone.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-x-16 lg:grid-cols-2">
+    {
+      singlePageCocktailMenu.map((item) => (
+        <div class="px-2 py-8">
+          <div class="flex flex-row items-start justify-between">
+            <h2 class="block text-3xl font-medium text-gray-500 dark:text-secondary-500">
+              {item.title}
+            </h2>
+            <h3 class="block text-3xl font-medium text-gray-600 dark:text-gray-300">
+              {item.price}
+            </h3>
+          </div>
+          <div>
+            <p class="block w-5/6 text-lg font-light text-gray-600 dark:text-gray-200">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

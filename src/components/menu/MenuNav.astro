@@ -3,7 +3,7 @@ const { currentPage } = Astro.props;
 const menuItems = [
   { name: "Lunch", href: "/menu/LunchMenu" },
   { name: "Dinner", href: "/menu/DinnerMenu" },
-  { name: "Cocktails", href: "/menu/CocktailMenu" },
+  { name: "Drinks", href: "/menu/CocktailMenu" },
   { name: "Brunch", href: "/menu/BrunchMenu" },
 ];
 
@@ -11,23 +11,25 @@ const activeTab =
   menuItems.find((item) => item.href === currentPage)?.name.toLowerCase() || "";
 ---
 
-<nav
-  class="mb-4 grid grid-cols-4 grid-rows-1 justify-center border-black bg-white"
->
-  {
-    menuItems.map((item) => (
-      <a
-        href={item.href}
-        class={`marquee border-l-4 border-r-4 px-4 py-2 text-center text-4xl font-extrabold uppercase 
-        ${
-          activeTab === item.name.toLowerCase()
-            ? "border-b-0 border-black  text-black"
-            : "border-b-8 border-black text-gray-700 hover:bg-gray-100"
-        }`}
-        data-tab={item.name.toLowerCase()}
-      >
-        {item.name}
-      </a>
-    ))
-  }
-</nav>
+<div>
+  <nav
+    class="dark:bg-border-900 mb-4 grid grid-cols-4 grid-rows-1 justify-center border-black bg-white"
+  >
+    {
+      menuItems.map((item) => (
+        <a
+          href={item.href}
+          class={`marquee text-1xl -ml-4 -mr-4 border-x-8 py-2 pr-4 text-center font-extrabold uppercase md:text-2xl lg:text-4xl 
+          ${
+            activeTab === item.name.toLowerCase()
+              ? "border-b-0 border-black bg-white text-black dark:border-primary-900 dark:bg-gray-800 dark:text-white"
+              : "border-b-8 border-black bg-gray-500 text-gray-200 hover:bg-gray-300 hover:text-gray-600 dark:border-primary-900 dark:bg-accent-600 dark:text-gray-200"
+          }`}
+          data-tab={item.name.toLowerCase()}
+        >
+          {item.name}
+        </a>
+      ))
+    }
+  </nav>
+</div>
