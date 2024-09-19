@@ -2,8 +2,7 @@
 import Containter from "../components/Container.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroInner from "../components/PageBanner.astro";
-import ContactInfo from "../components/ContactInfo.astro";
-import SectionBreak from "../components/SectionBreak.astro";
+import ContactForm from "../components/ContactForm.astro";
 import CtaBanner from "../components/CtaBanner.astro";
 
 const title = "Contact Us";
@@ -11,133 +10,10 @@ const desc = "";
 const image = "/page-banner-image.webp";
 ---
 
-<!--
-gonna keep the web3form verson intact for now
-might switch back later
-netflify forms is way cleaner but 100 submission limit
--->
 <BaseLayout title="Contact Us" description="Contact Us">
   <HeroInner title={title} desc={desc} image={image} />
-  <Containter class="text-gray-600 dark:text-gray-300">
-    <SectionBreak
-      backgroundColor="bg-primary-600"
-      stripeColor="bg-accent-400"
-      textColor="text-white"
-      text="RZBK"
-    />
-    <div class="grid grid-cols-1 lg:grid-cols-3">
-      <div class="lg:col-span-2">
-        <section class="bg-secondary-600 dark:bg-gray-800 lg:mt-0">
-          <div class="mx-auto max-w-screen-md px-4 py-8 lg:py-24">
-            <p class="mb-4">
-              <span
-                class="text-2xl font-light uppercase tracking-wide text-white dark:text-gray-200"
-              >
-                Contact:
-              </span>
-
-              <span
-                class="block text-4xl font-medium text-secondary-200 dark:text-secondary-500 lg:text-5xl"
-              >
-                Let's get in touch
-              </span>
-            </p>
-
-            <div
-              class="mb-8 text-justify text-lg text-gray-200 dark:text-gray-200 md:text-2xl"
-            >
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aliquid, commodi doloremque.
-              </p>
-            </div>
-            <form
-              name="contact"
-              method="POST"
-              id="form"
-              data-astro-reload
-              novalidate
-              class="space-y-4"
-              data-netlify="true"
-            >
-              <div>
-                <label
-                  for="name"
-                  class="mb-2 block text-lg font-medium text-gray-100 dark:text-gray-300"
-                  >Your name</label
-                >
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  class="block w-full bg-white p-4 text-base text-gray-600 placeholder-gray-600 ring-primary-500 hover:ring-8 focus:ring-8 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:placeholder-gray-200 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                  placeholder="John Smith"
-                  required
-                />
-              </div>
-              <div>
-                <label
-                  for="email"
-                  class="mb-2 block text-lg font-medium text-gray-100 dark:text-gray-300"
-                  >Your email</label
-                >
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  class="block w-full bg-white p-4 text-base text-gray-600 placeholder-gray-600 ring-primary-500 hover:ring-8 focus:ring-8 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:placeholder-gray-200 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                  placeholder="john.smith@gmail.com"
-                  required
-                />
-              </div>
-              <div>
-                <label
-                  for="subject"
-                  class="mb-2 block text-lg font-medium text-gray-100 dark:text-gray-300"
-                  >Subject</label
-                >
-                <input
-                  type="text"
-                  name="subject"
-                  id="subject"
-                  class="block w-full bg-white p-4 text-base text-gray-600 placeholder-gray-600 ring-primary-500 hover:ring-8 focus:ring-8 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:placeholder-gray-200 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                  placeholder="Let us know how we can help you"
-                  required
-                />
-              </div>
-              <div class="sm:col-span-2">
-                <label
-                  for="message"
-                  class="mb-2 block text-lg font-medium text-gray-100 dark:text-gray-300"
-                  >Your message</label
-                >
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="6"
-                  minlength="10"
-                  class="block w-full bg-white p-4 text-base text-gray-600 placeholder-gray-600 ring-primary-500 hover:ring-8 focus:ring-8 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:placeholder-gray-200 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                  placeholder="Leave a comment..."
-                  required></textarea>
-              </div>
-              <button
-                type="submit"
-                class="bg-white px-4 py-2 text-center font-bold text-primary-500 hover:bg-primary-500 hover:text-white dark:bg-primary-600 dark:text-white dark:hover:bg-primary-700"
-                >Send message</button
-              >
-            </form>
-          </div>
-        </section>
-      </div>
-
-      <ContactInfo />
-    </div>
-    <SectionBreak
-      backgroundColor="bg-primary-600"
-      stripeColor="bg-accent-400"
-      textColor="text-white"
-      text="RZBK"
-    />
+  <Containter>
+    <ContactForm />
     <CtaBanner />
   </Containter>
 </BaseLayout>
