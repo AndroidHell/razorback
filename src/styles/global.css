@@ -187,7 +187,9 @@ body {
 }
 
 .logo {
-  font-family: "Roboto", system-ui;
+  /* font-family: "Roboto", system-ui; */
+  font-family: "Roboto Serif Variable", serif;
+  font-weight: 500;
 }
 
 .marquee {
