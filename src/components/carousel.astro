@@ -1,5 +1,11 @@
 ---
+import { Image } from "astro:assets";
 
+import buddahBowlImage from "../../public/buddah-bowl.webp";
+import sandwichImage from "../../public/sandwich.webp";
+import resturauntImage from "../../public/resturaunt.webp";
+import sweetPotatoFriesImage from "../../public/sweet-potato-fries.webp";
+import stuffInABoatImage from "../../public/stuff-in-a-boat.webp";
 ---
 
 <div id="default-carousel" class="relative w-full" data-carousel="slide">
@@ -7,43 +13,48 @@
   <div class="relative h-56 overflow-hidden md:h-[580px]">
     <!-- Item 1 -->
     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-      <img
-        src="/buddah-bowl.webp"
+      <Image
+        loading="lazy"
+        src={buddahBowlImage}
         class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
-        alt="..."
+        alt="image of a Buddah bowl"
       />
     </div>
     <!-- Item 2 -->
     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-      <img
-        src="/sandwich.webp"
+      <Image
+        loading="lazy"
+        src={sandwichImage}
         class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
-        alt="..."
+        alt="image of a sandwich"
       />
     </div>
     <!-- Item 3 -->
 
     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-      <img
-        src="/resturaunt.webp"
+      <Image
+        loading="lazy"
+        src={resturauntImage}
         class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
-        alt="..."
+        alt="image of the resturaunt interior"
       />
     </div>
     <!-- Item 4 -->
     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-      <img
-        src="/sweet-potato-fries.webp"
+      <Image
+        loading="lazy"
+        src={sweetPotatoFriesImage}
         class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
-        alt="..."
+        alt="image of sweet potato fries"
       />
     </div>
     <!-- Item 5 -->
     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-      <img
-        src="/stuff-in-a-boat.webp"
+      <Image
+        loading="lazy"
+        src={stuffInABoatImage}
         class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
-        alt="..."
+        alt="image of stuff in a boat"
       />
     </div>
   </div>
